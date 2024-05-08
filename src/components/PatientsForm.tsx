@@ -1,14 +1,18 @@
 import { useForm } from "react-hook-form";
-import Error from "./Error";
+import { usePatientStore } from "../store/store";
 import type { DraftPatient } from "../types";
+import Error from "./Error";
 
 export default function PatientForm() {
   //#region states
+
+  const { addPatient, activeId } = usePatientStore();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<DraftPatient>();
 
   //#endregion
@@ -16,7 +20,8 @@ export default function PatientForm() {
   //#region Functions
 
   function registerPatient(data: DraftPatient) {
-    console.log(data);
+    addPatient(data);
+    reset();
   }
 
   //#endregion
@@ -43,6 +48,7 @@ export default function PatientForm() {
             id="name"
             className="w-full p-3  border border-gray-100"
             type="text"
+            autoComplete="off"
             placeholder="Nombre del Paciente"
             {...register("name", {
               required: "El nombre del paciente es obligatorio",
@@ -64,6 +70,7 @@ export default function PatientForm() {
             id="caretaker"
             className="w-full p-3  border border-gray-100"
             type="text"
+            autoComplete="off"
             placeholder="Nombre del Propietario"
             {...register("caretaker", {
               required: "El nombre del propietario es obligatorio",
@@ -74,9 +81,7 @@ export default function PatientForm() {
               },
             })}
           />
-          {errors.caretaker && (
-            <Error>{errors.caretaker?.message}</Error>
-          )}
+          {errors.caretaker && <Error>{errors.caretaker?.message}</Error>}
         </div>
 
         <div className="mb-5">
@@ -87,6 +92,7 @@ export default function PatientForm() {
             id="email"
             className="w-full p-3  border border-gray-100"
             type="email"
+            autoComplete="off"
             placeholder="Email de Registro"
             {...register("email", {
               required: "El Email es Obligatorio",
@@ -107,6 +113,7 @@ export default function PatientForm() {
             id="date"
             className="w-full p-3  border border-gray-100"
             type="date"
+            autoComplete="off"
             {...register("date", {
               required: "La fecha de alta es obligatoria",
             })}
@@ -122,13 +129,12 @@ export default function PatientForm() {
             id="symptoms"
             className="w-full p-3  border border-gray-100"
             placeholder="Síntomas del paciente"
+            autoComplete="off"
             {...register("symptoms", {
               required: "Los síntomas del paciente son obligatorios",
             })}
           />
-          {errors.symptoms && (
-            <Error>{errors.symptoms?.message}</Error>
-          )}
+          {errors.symptoms && <Error>{errors.symptoms?.message}</Error>}
         </div>
 
         <input
