@@ -17,6 +17,7 @@ Este es un proyecto que consiste en almacenar los datos de los clientes de una v
 - [**TailwindCSS**](https://tailwindcss.com/): Un marco de CSS de utilidad para la construcción rápida de interfaces de usuario personalizadas. 🎨
 - [**Zustand**](https://zustand.surge.sh/): Un estado global para React. 🌐
 - [**React Hook Form**](https://react-hook-form.com/): Una biblioteca para manejar formularios en React. 📝
+- [**React Toatify**](https://fkhadra.github.io/react-toastify/introduction): Una biblioteca para mostrar notificaciones en React. 📢
 
 ## 🚀 Instalación y uso
 
