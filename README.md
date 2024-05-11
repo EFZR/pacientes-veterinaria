@@ -26,4 +26,4 @@ Este es un proyecto que consiste en almacenar los datos de los clientes de una v
 3. Instala las dependencias: `npm install` 📦
 4. Ejecuta el proyecto: `npm run dev` 🏃
 
-Ahora, la aplicación debería estar corriendo en `http://localhost:5000`. 🌐
+Ahora, la aplicación debería estar corriendo en `http://localhost:5173`. 🌐
